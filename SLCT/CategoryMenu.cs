@@ -20,38 +20,81 @@ namespace SLCT
 
         private void buttonPR_Click(object sender, EventArgs e)
         {
+            QuizForm quiz = new QuizForm("Programare");
+
+            quiz.StartPosition = FormStartPosition.Manual;
+            quiz.Location = this.Location;
+            quiz.Size = this.Size;
+            quiz.WindowState = this.WindowState;
+
+            quiz.Show();
             this.Hide();
-            new QuizForm("Programare").Show();
         }
 
         private void buttonMA_Click(object sender, EventArgs e)
         {
+
+            QuizForm quiz = new QuizForm("Matematica");
+
+            quiz.StartPosition = FormStartPosition.Manual;
+            quiz.Location = this.Location;
+            quiz.Size = this.Size;
+            quiz.WindowState = this.WindowState;
+
+            quiz.Show();
             this.Hide();
-            new QuizForm("Matematica").Show();
         }
 
         private void buttonIS_Click(object sender, EventArgs e)
         {
+            QuizForm quiz = new QuizForm("Istorie");
+
+            quiz.StartPosition = FormStartPosition.Manual;
+            quiz.Location = this.Location;
+            quiz.Size = this.Size;
+            quiz.WindowState = this.WindowState;
+
+            quiz.Show();
             this.Hide();
-            new QuizForm("Istorie").Show();
         }
 
         private void buttonGE_Click(object sender, EventArgs e)
         {
+            QuizForm quiz = new QuizForm("Geografie");
+
+            quiz.StartPosition = FormStartPosition.Manual;
+            quiz.Location = this.Location;
+            quiz.Size = this.Size;
+            quiz.WindowState = this.WindowState;
+
+            quiz.Show();
             this.Hide();
-            new QuizForm("Geografie").Show();
         }
 
         private void buttonFI_Click(object sender, EventArgs e)
         {
+            QuizForm quiz = new QuizForm("Fizica");
+
+            quiz.StartPosition = FormStartPosition.Manual;
+            quiz.Location = this.Location;
+            quiz.Size = this.Size;
+            quiz.WindowState = this.WindowState;
+
+            quiz.Show();
             this.Hide();
-            new QuizForm("Fizica").Show();
         }
 
         private void buttonSP_Click(object sender, EventArgs e)
         {
+            QuizForm quiz = new QuizForm("Sport");
+
+            quiz.StartPosition = FormStartPosition.Manual;
+            quiz.Location = this.Location;
+            quiz.Size = this.Size;
+            quiz.WindowState = this.WindowState;
+
+            quiz.Show();
             this.Hide();
-            new QuizForm("Sport").Show();
         }
     }
 }
