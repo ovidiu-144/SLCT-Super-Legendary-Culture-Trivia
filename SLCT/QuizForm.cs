@@ -12,12 +12,12 @@ namespace SLCT
 {
     public partial class QuizForm : Form
     {
-
+        private QuestionManager _questionManager = new QuestionManager();
         private string _category;
         private int _currentIndex = 0;
         private int _score = 0;
 
-        private List<(string text, string[] options, int correct)> _questions;
+        private List<Question> _questions;
 
         public QuizForm(string categorie)
         {
@@ -29,59 +29,22 @@ namespace SLCT
             _category = categorie;
             this.Text = "SLCT — " + categorie;
 
-            IncarcaIntrebari();
+            try
+            {
+                _questionManager.LoadQuestions("Questions.json");
+                _questions = _questionManager.GetQuestions(categorie);
+
+                if (_questions == null || _questions.Count == 0)
+                {
+                    MessageBox.Show("Nu există întrebări pentru categoria selectată.", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show($"Eroare la încărcarea întrebărilor: {ex.Message}" , "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
             AfiseazaIntrebare();
-        }
-
-        private void IncarcaIntrebari()
-        {
-            if (_category == "Programare")
-            {
-                _questions = new List<(string, string[], int)>
-                {
-                    ("Câte biti are un byte?", new[] {"4", "8", "16", "32"}, 1),
-                    ("Ce înseamnă CPU?", new[] {"Central Processing Unit", "Computer Power Unit", "Core Program Utility", "Central Program Upload"}, 0),
-                };
-            }
-            else if (_category == "Matematica")
-            {
-                _questions = new List<(string, string[], int)>
-                {
-                    ("Cât face 7 x 8?", new[] {"54", "56", "58", "64"}, 1),
-                    ("Rădăcina pătrată din 81?", new[] {"7", "8", "9", "10"}, 2),
-                };
-            }
-            else if (_category == "Istorie")
-            {
-                _questions = new List<(string, string[], int)>
-                {
-                    ("În ce an a avut loc Marea Unire?", new[] {"1916", "1918", "1920", "1930"}, 1),
-                };
-            }
-            else if (_category == "Geografie")
-            {
-                _questions = new List<(string, string[], int)>
-                {
-                    ("Care este capitala Franței?", new[] {"Berlin", "Madrid", "Paris", "Roma"}, 2),
-                };
-            }
-            else if (_category == "Sport")
-            {
-                _questions = new List<(string, string[], int)>
-                {
-                    ("Câți jucători are o echipă de fotbal pe teren?", new[] {"9", "10", "11", "12"}, 2),
-                };
-            }
-            else if (_category == "Fizica")
-            {
-                _questions = new List<(string, string[], int)>
-                {
-                    ("Unitatea de măsură pentru forță este?", new[] {"Joule", "Newton", "Watt", "Pascal"}, 1),
-                };
-            }
-
-            // Randomizare întrebări
-            _questions = _questions.OrderBy(x => Guid.NewGuid()).ToList();
         }
 
         private void AfiseazaIntrebare()
@@ -102,14 +65,14 @@ namespace SLCT
 
             var q = _questions[_currentIndex];
 
-            richTextBoxQuestion.Text = q.text;
+            richTextBoxQuestion.Text = q.Text;
             richTextBoxScore.Text =
                 $"Categorie: {_category}\nScor: {_score}\nÎntrebarea {_currentIndex + 1} / {_questions.Count}";
 
-            buttonA.Text = q.options[0];
-            buttonB.Text = q.options[1];
-            buttonC.Text = q.options[2];
-            buttonD.Text = q.options[3];
+            buttonA.Text = q.Options[0];
+            buttonB.Text = q.Options[1];
+            buttonC.Text = q.Options[2];
+            buttonD.Text = q.Options[3];
 
             buttonA.Focus();
 
@@ -126,7 +89,7 @@ namespace SLCT
             buttonC.Enabled = false;
             buttonD.Enabled = false;
 
-            if (index == _questions[_currentIndex].correct)
+            if (index == _questions[_currentIndex].CorrectAnswer)
             {
                 _score++;
                 ((Button)Controls["button" + "ABCD"[index]]).BackColor = Color.LightGreen;
@@ -135,7 +98,7 @@ namespace SLCT
             {
                 ((Button)Controls["button" + "ABCD"[index]]).BackColor = Color.IndianRed;
 
-                int correct = _questions[_currentIndex].correct;
+                int correct = _questions[_currentIndex].CorrectAnswer;
                 ((Button)Controls["button" + "ABCD"[correct]]).BackColor = Color.LightGreen;
             }
 
@@ -169,6 +132,11 @@ namespace SLCT
         private void buttonD_Click(object sender, EventArgs e)
         {
             VerificaRaspuns(3);
+        }
+
+        private void richTextBoxQuestion_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

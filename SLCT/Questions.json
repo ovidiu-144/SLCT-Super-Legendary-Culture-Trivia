@@ -1,0 +1,377 @@
+[
+  {
+    "Text": "Câte biti are un byte?",
+    "Options": [ "4", "8", "16", "32" ],
+    "CorrectAnswer": 1,
+    "Category": "Programare"
+  },
+  {
+    "Text": "Ce înseamnă CPU?",
+    "Options": [ "Central Processing Unit", "Computer Power Unit", "Core Program Utility", "Central Program Upload" ],
+    "CorrectAnswer": 0,
+    "Category": "Programare"
+  },
+  {
+    "Text": "Ce limbaj de marcare este folosit pentru structurarea paginilor web?",
+    "Options": [ "Python", "HTML", "C++", "Java" ],
+    "CorrectAnswer": 1,
+    "Category": "Programare"
+  },
+  {
+    "Text": "Ce companie a dezvoltat limbajul de programare C#?",
+    "Options": [ "Apple", "Google", "Microsoft", "Oracle" ],
+    "CorrectAnswer": 2,
+    "Category": "Programare"
+  },
+  {
+    "Text": "Ce reprezintă acronimul SQL?",
+    "Options": [ "Simple Query Language", "Structured Query Language", "Standard Question Logic", "System Queue Language" ],
+    "CorrectAnswer": 1,
+    "Category": "Programare"
+  },
+  {
+    "Text": "În C#, ce tip de date este folosit pentru numere întregi?",
+    "Options": [ "string", "float", "bool", "int" ],
+    "CorrectAnswer": 3,
+    "Category": "Programare"
+  },
+  {
+    "Text": "Ce rol are un compilator?",
+    "Options": [ "Rulează programul", "Traduce codul sursă în cod mașină", "Desenează interfața grafică", "Șterge erorile" ],
+    "CorrectAnswer": 1,
+    "Category": "Programare"
+  },
+  {
+    "Text": "Care dintre următoarele NU este un limbaj de programare?",
+    "Options": [ "Python", "Java", "HTTP", "C++" ],
+    "CorrectAnswer": 2,
+    "Category": "Programare"
+  },
+  {
+    "Text": "Ce reprezintă paradigma OOP?",
+    "Options": [ "Object-Oriented Programming", "Only Output Process", "Overloaded Operator Pattern", "Original Object Prototype" ],
+    "CorrectAnswer": 0,
+    "Category": "Programare"
+  },
+  {
+    "Text": "Cum se numește spațiul de stocare temporar utilizat la funcția 'Copy'?",
+    "Options": [ "Hard Drive", "RAM", "Cache", "Clipboard" ],
+    "CorrectAnswer": 3,
+    "Category": "Programare"
+  },
+
+
+
+  {
+    "Text": "Cât face 7 x 8?",
+    "Options": [ "54", "56", "58", "64" ],
+    "CorrectAnswer": 1,
+    "Category": "Matematica"
+  },
+  {
+    "Text": "Rădăcina pătrată din 81?",
+    "Options": [ "7", "8", "9", "10" ],
+    "CorrectAnswer": 2,
+    "Category": "Matematica"
+  },
+  {
+    "Text": "Câte grade are suma unghiurilor interne ale unui triunghi?",
+    "Options": [ "90", "180", "360", "270" ],
+    "CorrectAnswer": 1,
+    "Category": "Matematica"
+  },
+  {
+    "Text": "Care este rezultatul ecuației 5 + 3 x 2?",
+    "Options": [ "16", "10", "11", "15" ],
+    "CorrectAnswer": 2,
+    "Category": "Matematica"
+  },
+  {
+    "Text": "Cum se numește un poligon cu șase laturi?",
+    "Options": [ "Pentagon", "Hexagon", "Heptagon", "Octogon" ],
+    "CorrectAnswer": 1,
+    "Category": "Matematica"
+  },
+  {
+    "Text": "Care este valoarea aproximativă a constantei matematice Pi (π)?",
+    "Options": [ "3.12", "3.14", "3.16", "3.18" ],
+    "CorrectAnswer": 1,
+    "Category": "Matematica"
+  },
+  {
+    "Text": "Care este cel mai mic număr prim?",
+    "Options": [ "0", "1", "2", "3" ],
+    "CorrectAnswer": 2,
+    "Category": "Matematica"
+  },
+  {
+    "Text": "Cât este 2 la puterea a 3-a?",
+    "Options": [ "6", "12", "9", "8" ],
+    "CorrectAnswer": 3,
+    "Category": "Matematica"
+  },
+  {
+    "Text": "Cât reprezintă 20% din 50?",
+    "Options": [ "5", "10", "15", "20" ],
+    "CorrectAnswer": 1,
+    "Category": "Matematica"
+  },
+  {
+    "Text": "Ce reprezintă perimetrul unui pătrat cu latura l?",
+    "Options": [ "l x l", "2 x l", "4 x l", "l / 4" ],
+    "CorrectAnswer": 2,
+    "Category": "Matematica"
+  },
+
+
+
+  {
+    "Text": "În ce an a avut loc Marea Unire?",
+    "Options": [ "1916", "1918", "1920", "1930" ],
+    "CorrectAnswer": 1,
+    "Category": "Istorie"
+  },
+  {
+    "Text": "Cine a fost primul domnitor al Principatelor Române Unite?",
+    "Options": [ "Carol I", "Mihai Viteazul", "Alexandru Ioan Cuza", "Ștefan cel Mare" ],
+    "CorrectAnswer": 2,
+    "Category": "Istorie"
+  },
+  {
+    "Text": "În ce an a căzut Zidul Berlinului?",
+    "Options": [ "1989", "1985", "1991", "1995" ],
+    "CorrectAnswer": 0,
+    "Category": "Istorie"
+  },
+  {
+    "Text": "Cine a condus Franța după Revoluția Franceză și a devenit împărat?",
+    "Options": [ "Ludovic al XIV-lea", "Napoleon Bonaparte", "Ioana d'Arc", "Carol cel Mare" ],
+    "CorrectAnswer": 1,
+    "Category": "Istorie"
+  },
+  {
+    "Text": "În ce an a început Primul Război Mondial?",
+    "Options": [ "1912", "1914", "1916", "1939" ],
+    "CorrectAnswer": 1,
+    "Category": "Istorie"
+  },
+  {
+    "Text": "Cine a descoperit America în 1492?",
+    "Options": [ "Fernando Magellan", "Vasco da Gama", "Cristofor Columb", "James Cook" ],
+    "CorrectAnswer": 2,
+    "Category": "Istorie"
+  },
+  {
+    "Text": "Cine a fost primul președinte al Statelor Unite ale Americii?",
+    "Options": [ "Abraham Lincoln", "Thomas Jefferson", "John Adams", "George Washington" ],
+    "CorrectAnswer": 3,
+    "Category": "Istorie"
+  },
+  {
+    "Text": "Ce imperiu a fost condus de Iulius Cezar?",
+    "Options": [ "Imperiul Otoman", "Imperiul Britanic", "Imperiul Roman", "Imperiul Mongol" ],
+    "CorrectAnswer": 2,
+    "Category": "Istorie"
+  },
+  {
+    "Text": "Cum se numea zeul suprem în mitologia greacă?",
+    "Options": [ "Ares", "Apollo", "Poseidon", "Zeus" ],
+    "CorrectAnswer": 3,
+    "Category": "Istorie"
+  },
+  {
+    "Text": "Care a fost numele orașului antic distrus de erupția vulcanului Vezuviu?",
+    "Options": [ "Atena", "Sparta", "Pompei", "Cartagina" ],
+    "CorrectAnswer": 2,
+    "Category": "Istorie"
+  },
+
+
+
+  {
+    "Text": "Care este capitala Franței?",
+    "Options": [ "Berlin", "Madrid", "Paris", "Roma" ],
+    "CorrectAnswer": 2,
+    "Category": "Geografie"
+  },
+  {
+    "Text": "Care este cel mai lung fluviu din lume?",
+    "Options": [ "Nil", "Volga", "Mississippi", "Gange" ],
+    "CorrectAnswer": 0,
+    "Category": "Geografie"
+  },
+  {
+    "Text": "Ce ocean se află la est de Statele Unite ale Americii?",
+    "Options": [ "Oceanul Indian", "Oceanul Pacific", "Oceanul Arctic", "Oceanul Atlantic" ],
+    "CorrectAnswer": 3,
+    "Category": "Geografie"
+  },
+  {
+    "Text": "Care este cel mai mare ocean de pe Pământ?",
+    "Options": [ "Oceanul Atlantic", "Oceanul Pacific", "Oceanul Indian", "Oceanul Arctic" ],
+    "CorrectAnswer": 1,
+    "Category": "Geografie"
+  },
+  {
+    "Text": "Pe ce continent se află Egiptul?",
+    "Options": [ "Asia", "Europa", "Africa", "America de Sud" ],
+    "CorrectAnswer": 2,
+    "Category": "Geografie"
+  },
+  {
+    "Text": "Ce țară are cea mai mare suprafață din lume?",
+    "Options": [ "China", "Statele Unite", "Canada", "Rusia" ],
+    "CorrectAnswer": 3,
+    "Category": "Geografie"
+  },
+  {
+    "Text": "Care este cel mai înalt munte din lume?",
+    "Options": [ "K2", "Kilimanjaro", "Everest", "Mont Blanc" ],
+    "CorrectAnswer": 2,
+    "Category": "Geografie"
+  },
+  {
+    "Text": "Care este capitala Japoniei?",
+    "Options": [ "Beijing", "Seul", "Tokyo", "Kyoto" ],
+    "CorrectAnswer": 2,
+    "Category": "Geografie"
+  },
+  {
+    "Text": "Ce oraș este străbătut de fluviul Tamisa?",
+    "Options": [ "Londra", "Paris", "Berlin", "Viena" ],
+    "CorrectAnswer": 0,
+    "Category": "Geografie"
+  },
+  {
+    "Text": "În ce țară se află celebrul monument Taj Mahal?",
+    "Options": [ "Thailanda", "India", "Egipt", "Turcia" ],
+    "CorrectAnswer": 1,
+    "Category": "Geografie"
+  },
+
+
+
+  {
+    "Text": "Câți jucători are o echipă de fotbal pe teren?",
+    "Options": [ "9", "10", "11", "12" ],
+    "CorrectAnswer": 2,
+    "Category": "Sport"
+  },
+  {
+    "Text": "În ce sport se folosește un puc?",
+    "Options": [ "Tenis", "Hochei pe gheață", "Golf", "Polo pe apă" ],
+    "CorrectAnswer": 1,
+    "Category": "Sport"
+  },
+  {
+    "Text": "Câți ani trec între două ediții de vară ale Jocurilor Olimpice?",
+    "Options": [ "2 ani", "3 ani", "4 ani", "5 ani" ],
+    "CorrectAnswer": 2,
+    "Category": "Sport"
+  },
+  {
+    "Text": "În ce sport se lovește mingea cu racheta peste un fileu?",
+    "Options": [ "Baschet", "Fotbal", "Tenis", "Volei" ],
+    "CorrectAnswer": 2,
+    "Category": "Sport"
+  },
+  {
+    "Text": "Care țară a câștigat cele mai multe Cupe Mondiale la fotbal (până în 2022)?",
+    "Options": [ "Germania", "Italia", "Argentina", "Brazilia" ],
+    "CorrectAnswer": 3,
+    "Category": "Sport"
+  },
+  {
+    "Text": "Câte puncte valorează o aruncare liberă în baschet?",
+    "Options": [ "1", "2", "3", "4" ],
+    "CorrectAnswer": 0,
+    "Category": "Sport"
+  },
+  {
+    "Text": "În ce sport a excelat Nadia Comăneci?",
+    "Options": [ "Înot", "Gimnastică", "Atletism", "Patinaj artistic" ],
+    "CorrectAnswer": 1,
+    "Category": "Sport"
+  },
+  {
+    "Text": "Cum se numește stilul de înot unde ambele brațe sunt aduse simultan peste apă?",
+    "Options": [ "Craul", "Bras", "Spate", "Fluture" ],
+    "CorrectAnswer": 3,
+    "Category": "Sport"
+  },
+  {
+    "Text": "Câte seturi (maxim) se joacă într-un meci masculin de tenis la Grand Slam?",
+    "Options": [ "3", "4", "5", "6" ],
+    "CorrectAnswer": 2,
+    "Category": "Sport"
+  },
+  {
+    "Text": "În ce sport excelează Simona Halep?",
+    "Options": [ "Handbal", "Tenis", "Gimnastică", "Scrimă" ],
+    "CorrectAnswer": 1,
+    "Category": "Sport"
+  },
+
+
+
+  {
+    "Text": "Unitatea de măsură pentru forță este?",
+    "Options": [ "Joule", "Newton", "Watt", "Pascal" ],
+    "CorrectAnswer": 1,
+    "Category": "Fizica"
+  },
+  {
+    "Text": "Ce fizician a formulat legile mișcării și legea atracției universale?",
+    "Options": [ "Albert Einstein", "Nikola Tesla", "Isaac Newton", "Galileo Galilei" ],
+    "CorrectAnswer": 2,
+    "Category": "Fizica"
+  },
+  {
+    "Text": "Care este forța care ne atrage spre centrul Pământului?",
+    "Options": [ "Frecarea", "Magnetismul", "Gravitația", "Tensiunea" ],
+    "CorrectAnswer": 2,
+    "Category": "Fizica"
+  },
+  {
+    "Text": "Unitatea de măsură pentru intensitatea curentului electric este:",
+    "Options": [ "Volt", "Amper", "Ohm", "Watt" ],
+    "CorrectAnswer": 1,
+    "Category": "Fizica"
+  },
+  {
+    "Text": "Care particulă subatomică are sarcină electrică negativă?",
+    "Options": [ "Protonul", "Neutronul", "Electronul", "Fotonul" ],
+    "CorrectAnswer": 2,
+    "Category": "Fizica"
+  },
+  {
+    "Text": "Cum se numește trecerea unei substanțe din stare solidă în stare lichidă?",
+    "Options": [ "Evaporare", "Condensare", "Topire", "Solidificare" ],
+    "CorrectAnswer": 2,
+    "Category": "Fizica"
+  },
+  {
+    "Text": "Care este viteza luminii în vid (aproximativ)?",
+    "Options": [ "3.000 km/s", "30.000 km/s", "300.000 km/s", "3.000.000 km/s" ],
+    "CorrectAnswer": 2,
+    "Category": "Fizica"
+  },
+  {
+    "Text": "Ce mărime fizică se măsoară în Joule?",
+    "Options": [ "Forța", "Energia", "Puterea", "Presiunea" ],
+    "CorrectAnswer": 1,
+    "Category": "Fizica"
+  },
+  {
+    "Text": "Ce instrument se folosește pentru măsurarea tensiunii electrice?",
+    "Options": [ "Ampermetru", "Dinamometru", "Barometru", "Voltmetru" ],
+    "CorrectAnswer": 3,
+    "Category": "Fizica"
+  },
+  {
+    "Text": "Care este formula energiei propusă de Albert Einstein?",
+    "Options": [ "F = m * a", "E = mc^2", "P = V * I", "V = d / t" ],
+    "CorrectAnswer": 1,
+    "Category": "Fizica"
+  }
+]

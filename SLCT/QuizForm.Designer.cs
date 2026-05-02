@@ -48,6 +48,7 @@
             this.richTextBoxQuestion.Size = new System.Drawing.Size(609, 186);
             this.richTextBoxQuestion.TabIndex = 0;
             this.richTextBoxQuestion.Text = "";
+            this.richTextBoxQuestion.TextChanged += new System.EventHandler(this.richTextBoxQuestion_TextChanged);
             // 
             // buttonA
             // 
