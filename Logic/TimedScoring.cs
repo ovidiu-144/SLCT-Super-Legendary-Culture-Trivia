@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Logic
 {
+    /// <summary>
+    /// Implementare in care conteaza rapiditatea raspunsului
+    /// </summary>
     public class TimedScoring : IScoringStrategy
     {
         public int CalculateScore(bool isCorrect, int timeElapsed)

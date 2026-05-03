@@ -4,45 +4,126 @@ using System.Text;
 
 namespace Logic
 {
+    /// <summary>
+    /// Clasa ce se ocupa de logica din spatele intrebarilor (avansare, verificare raspunsuri)
+    /// </summary>
     public class QuizEngine
     {
-        //Deocamdata nu avem Questions
-        //private List<Question> _questions;
-
-        //lasam string pe moment
-        private List<String> _questions;
+        private List<Question> _questions;
         private int _currentIndex;
         private ScoreManager _scoreManager;
+        private QuestionManager _questionManager;
 
-        //nu este logica pt QuestionManager
-        //private QuestionManger _questionManager;
+        /// <summary>
+        /// Constructor care creeaza ScoreManager, QuestionManager
+        /// </summary>
+        /// <param name="strategy">Atribut pentru sablonul Strategy</param>
+        public QuizEngine(String strategy)
+        {
+            //creem alt QuizEngine doar daca schimbam strategia
 
+            //O sa trimitem un string pentru strategie
+            _scoreManager = new ScoreManager(strategy);
+
+            _questionManager = new QuestionManager();
+            _questions = new List<Question>();
+            _currentIndex = 0;
+        }
+
+        //Ar trebui sa pun introduc toate intrebarile din categoria respectiva in memorie
+        //Vedem daca ar trebui aici sa incarcam intrebarile in memorie din fisierele externe,
+        //sau o facem in Meniu
+
+        /// <summary>
+        /// Actualizeaza intrebarile cu ce are in memorie
+        /// </summary>
+        /// <param name="category">Numele categoriei din care luam intrebarile</param>
         void StartQuiz(string category)
         {
-            throw new NotImplementedException();
+            _questions = _questionManager.GetQuestions(category);
+            //eventual poate marcarea unui flag sau ceva
         }
 
-        //Question = string
-        String GetCurrentQuestion => _questions[_currentIndex];
+        /// <summary>
+        /// Returneaza intrebarea curenta
+        /// </summary>
+        Question CurrentQuestion
+        {
+            get
+            {
+                //Ca sa nu avem probleme daca este apelata cand nu trebuie
+                if (_questions.Count == 0)
+                    throw new InvalidOperationException("Nu exista intrebari incarcate");
+                return _questions[_currentIndex];
+            }
+        }
         
+
+
+        /// <summary>
+        /// Calculam scorul dupa raspunsul dat
+        /// </summary>
+        /// <param name="optionIndex">Varianta aleasa de utilizator</param>
+        /// <returns></returns>
         bool SubmitAnswer (int optionIndex)
         {
-            throw new NotImplementedException();
-        }
+            /*Cred ca pentru suffle, ar trebui sa luam cumva
+            De ex, intrebarea sa fie de forma
+              Intrebare ? 1.RaspunsA  2.RaspunsB  3.RaspunsC  4.RaspunsD
+             pe interfata afisam doar RaspunsA B C D
+             iar la raspuns corect am avea 1, 2, 3, 4
+             astfel daca am amesteca raspunsurile, varianta corecta ar ramane
+            doar  in functie de primul index
 
+            Si am putea avea ceva de genu
+            
+            int answer = Int32.Parse (CurrentQuestion[optionIndex][0]); // -> Acum answer are acea valoare
+            bool isCorrect = (CurrentQuestion.CorrectAnswer == answer);
+            */
+            
+            //Verificam daca este corect raspunsul
+            bool isCorrect = (CurrentQuestion.CorrectAnswer == optionIndex);
+
+            //Actualizam scorul in functie de raspuns
+
+            //ar trebui si timeElapsed dar, deocamdata lasam doar atat
+            //Este oricum by default 0
+            _scoreManager.UpdateScore(isCorrect);
+
+            //Trimitem inapoi ca sa stie interfata ce sa faca (Poate scrie in anumit fel cand e corect)
+            return isCorrect;
+        }
+        /// <summary>
+        /// Returneaza daca s-au terminat intrebarile sau nu
+        /// </summary>
+        /// <returns></returns>
         bool IsFinished()
         {
-            throw new NotImplementedException();
+            return _currentIndex == _questions.Count;
         }
+        /// <summary>
+        /// Getter pentru scor
+        /// </summary>
+        int Score => _scoreManager.TotalScore;
 
-        int GetScore()
-        {
-            throw new NotImplementedException();
-        }
-
+        /// <summary>
+        /// Merge la urmatoarea intrebare
+        /// </summary>
         void NextQuestion()
         {
-            throw new NotImplementedException();
+            _currentIndex++;
+        }
+
+        /// <summary>
+        /// Reseteaza scorul si intrebarile
+        /// </summary>
+        void Reset()
+        {
+            _scoreManager.Reset();
+            _currentIndex = 0;
+
+            //Deodata cu asta ar trebui facut si un shuffle pentru intrebari eventual
+            //Sau cu alte categorii?
         }
     }
 }
