@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace Logic
 {
     /// <summary>
@@ -26,6 +27,10 @@ namespace Logic
             _scoreManager = new ScoreManager(strategy);
 
             _questionManager = new QuestionManager();
+            //punem in memorie fiecare intrebare
+            _questionManager.LoadQuestions("Questions.json");
+
+
             _questions = new List<Question>();
             _currentIndex = 0;
         }
