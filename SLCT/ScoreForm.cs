@@ -12,17 +12,16 @@ namespace SLCT
 {
     public partial class ScoreForm : Form
     {
-        //de completat aici, trebuie sa calculeze scorul x din 100 pct
         public ScoreForm(int score, int total)
         {
             InitializeComponent();
-            labelScore.Text = $"Scorul tău: {score * 100} puncte";
+            labelScore.Text = $"Scorul tău: {score * 10} puncte";
             labelDetalii.Text = $"{score} răspunsuri corecte din {total}";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MainMenu menu = new MainMenu();
+            CategoryMenu menu = new CategoryMenu();
 
             menu.StartPosition = FormStartPosition.Manual;
             menu.Location = this.Location;

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Logic;
 
 namespace SLCT
 {
@@ -16,18 +17,23 @@ namespace SLCT
         private string _category;
         private int _currentIndex = 0;
         private int _score = 0;
+        private IScoringStrategy _strategy;
 
         private List<Question> _questions;
 
-        public QuizForm(string categorie)
+        public QuizForm(string categorie, IScoringStrategy strategy)
         {
             InitializeComponent();
+
+            _strategy = strategy;
+            _category = categorie;
 
             richTextBoxQuestion.ReadOnly = true;
             richTextBoxScore.ReadOnly = true;
 
             _category = categorie;
             this.Text = "SLCT — " + categorie;
+
 
             try
             {

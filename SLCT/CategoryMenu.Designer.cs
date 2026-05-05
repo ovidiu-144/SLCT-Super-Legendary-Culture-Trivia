@@ -36,6 +36,8 @@
             this.buttonGE = new System.Windows.Forms.Button();
             this.buttonFI = new System.Windows.Forms.Button();
             this.buttonSP = new System.Windows.Forms.Button();
+            this.comboStrategy = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelCategories
@@ -45,7 +47,7 @@
             this.labelCategories.BackColor = System.Drawing.Color.Transparent;
             this.labelCategories.Font = new System.Drawing.Font("Stencil", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCategories.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelCategories.Location = new System.Drawing.Point(477, 155);
+            this.labelCategories.Location = new System.Drawing.Point(471, 115);
             this.labelCategories.Name = "labelCategories";
             this.labelCategories.Size = new System.Drawing.Size(462, 95);
             this.labelCategories.TabIndex = 0;
@@ -58,7 +60,7 @@
             this.buttonPR.BackColor = System.Drawing.Color.Navy;
             this.buttonPR.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPR.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonPR.Location = new System.Drawing.Point(376, 356);
+            this.buttonPR.Location = new System.Drawing.Point(370, 316);
             this.buttonPR.Name = "buttonPR";
             this.buttonPR.Size = new System.Drawing.Size(209, 73);
             this.buttonPR.TabIndex = 1;
@@ -72,7 +74,7 @@
             this.buttonMA.BackColor = System.Drawing.Color.Navy;
             this.buttonMA.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonMA.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonMA.Location = new System.Drawing.Point(376, 451);
+            this.buttonMA.Location = new System.Drawing.Point(370, 411);
             this.buttonMA.Name = "buttonMA";
             this.buttonMA.Size = new System.Drawing.Size(209, 73);
             this.buttonMA.TabIndex = 2;
@@ -86,7 +88,7 @@
             this.buttonIS.BackColor = System.Drawing.Color.Navy;
             this.buttonIS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonIS.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonIS.Location = new System.Drawing.Point(376, 542);
+            this.buttonIS.Location = new System.Drawing.Point(370, 502);
             this.buttonIS.Name = "buttonIS";
             this.buttonIS.Size = new System.Drawing.Size(209, 73);
             this.buttonIS.TabIndex = 3;
@@ -100,7 +102,7 @@
             this.buttonGE.BackColor = System.Drawing.Color.Navy;
             this.buttonGE.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonGE.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonGE.Location = new System.Drawing.Point(789, 356);
+            this.buttonGE.Location = new System.Drawing.Point(783, 316);
             this.buttonGE.Name = "buttonGE";
             this.buttonGE.Size = new System.Drawing.Size(209, 73);
             this.buttonGE.TabIndex = 4;
@@ -114,7 +116,7 @@
             this.buttonFI.BackColor = System.Drawing.Color.Navy;
             this.buttonFI.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonFI.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonFI.Location = new System.Drawing.Point(789, 451);
+            this.buttonFI.Location = new System.Drawing.Point(783, 411);
             this.buttonFI.Name = "buttonFI";
             this.buttonFI.Size = new System.Drawing.Size(209, 73);
             this.buttonFI.TabIndex = 5;
@@ -128,7 +130,7 @@
             this.buttonSP.BackColor = System.Drawing.Color.Navy;
             this.buttonSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSP.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonSP.Location = new System.Drawing.Point(789, 542);
+            this.buttonSP.Location = new System.Drawing.Point(783, 502);
             this.buttonSP.Name = "buttonSP";
             this.buttonSP.Size = new System.Drawing.Size(209, 73);
             this.buttonSP.TabIndex = 6;
@@ -136,12 +138,38 @@
             this.buttonSP.UseVisualStyleBackColor = false;
             this.buttonSP.Click += new System.EventHandler(this.buttonSP_Click);
             // 
+            // comboStrategy
+            // 
+            this.comboStrategy.FormattingEnabled = true;
+            this.comboStrategy.Items.AddRange(new object[] {
+            "Negative Scoring",
+            "Simple Scoring",
+            "Timed Scoring"});
+            this.comboStrategy.Location = new System.Drawing.Point(614, 704);
+            this.comboStrategy.Name = "comboStrategy";
+            this.comboStrategy.Size = new System.Drawing.Size(158, 24);
+            this.comboStrategy.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(559, 672);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(280, 20);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Strategie de acordare a scorului";
+            // 
             // CategoryMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1401, 775);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.comboStrategy);
             this.Controls.Add(this.buttonSP);
             this.Controls.Add(this.buttonFI);
             this.Controls.Add(this.buttonGE);
@@ -164,5 +192,7 @@
         private System.Windows.Forms.Button buttonGE;
         private System.Windows.Forms.Button buttonFI;
         private System.Windows.Forms.Button buttonSP;
+        private System.Windows.Forms.ComboBox comboStrategy;
+        private System.Windows.Forms.Label label1;
     }
 }

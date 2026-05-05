@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Logic;
 
 namespace SLCT
 {
@@ -16,11 +17,16 @@ namespace SLCT
         {
             InitializeComponent();
 
+            comboStrategy.Items.Add("Simple Scoring");
+            comboStrategy.Items.Add("Negative Scoring");
+            comboStrategy.Items.Add("Timed Scoring");
+            comboStrategy.SelectedIndex = 0;
+
         }
 
         private void buttonPR_Click(object sender, EventArgs e)
         {
-            QuizForm quiz = new QuizForm("Programare");
+            QuizForm quiz = new QuizForm("Programare", GetStrategy());
 
             quiz.StartPosition = FormStartPosition.Manual;
             quiz.Location = this.Location;
@@ -34,7 +40,7 @@ namespace SLCT
         private void buttonMA_Click(object sender, EventArgs e)
         {
 
-            QuizForm quiz = new QuizForm("Matematica");
+            QuizForm quiz = new QuizForm("Matematica", GetStrategy());
 
             quiz.StartPosition = FormStartPosition.Manual;
             quiz.Location = this.Location;
@@ -47,7 +53,7 @@ namespace SLCT
 
         private void buttonIS_Click(object sender, EventArgs e)
         {
-            QuizForm quiz = new QuizForm("Istorie");
+            QuizForm quiz = new QuizForm("Istorie", GetStrategy());
 
             quiz.StartPosition = FormStartPosition.Manual;
             quiz.Location = this.Location;
@@ -60,7 +66,7 @@ namespace SLCT
 
         private void buttonGE_Click(object sender, EventArgs e)
         {
-            QuizForm quiz = new QuizForm("Geografie");
+            QuizForm quiz = new QuizForm("Geografie", GetStrategy());
 
             quiz.StartPosition = FormStartPosition.Manual;
             quiz.Location = this.Location;
@@ -73,7 +79,7 @@ namespace SLCT
 
         private void buttonFI_Click(object sender, EventArgs e)
         {
-            QuizForm quiz = new QuizForm("Fizica");
+            QuizForm quiz = new QuizForm("Fizica", GetStrategy());
 
             quiz.StartPosition = FormStartPosition.Manual;
             quiz.Location = this.Location;
@@ -86,7 +92,7 @@ namespace SLCT
 
         private void buttonSP_Click(object sender, EventArgs e)
         {
-            QuizForm quiz = new QuizForm("Sport");
+            QuizForm quiz = new QuizForm("Sport", GetStrategy());
 
             quiz.StartPosition = FormStartPosition.Manual;
             quiz.Location = this.Location;
@@ -95,6 +101,19 @@ namespace SLCT
 
             quiz.Show();
             this.Hide();
+        }
+
+        private IScoringStrategy GetStrategy()
+        {
+            string selected = comboStrategy.SelectedItem.ToString();
+
+            if (selected == "Negative Scoring")
+                return new NegativeScoring();
+
+            if (selected == "Timed Scoring")
+                return new TimedScoring();
+
+            return new SimpleScoring();
         }
     }
 }
