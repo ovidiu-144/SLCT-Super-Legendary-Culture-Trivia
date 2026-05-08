@@ -1,21 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.IO;
 using System.Text.Json;
+using System.Threading.Tasks;
 
-namespace SLCT
+namespace DBManagement
 {
     public class QuestionManager
     {
         private List<Question> _questions;
 
+        public QuestionManager(string filePath = "Questions.json")
+        {
+            string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, filePath);
+            _questions = new List<Question>();
+            LoadQuestions(fullPath); ;
+        }
         public void LoadQuestions(string filePath)
         {
             string jsonString = File.ReadAllText(filePath);
-            _questions = JsonSerializer.Deserialize<List<Question>>(jsonString);
+            _questions = JsonSerializer.Deserialize<List<Question>>(jsonString) ?? new List<Question>();
 
         }
 

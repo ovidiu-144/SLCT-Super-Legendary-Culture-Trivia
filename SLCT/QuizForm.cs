@@ -8,18 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logic;
+using DBManagement;
 
 namespace SLCT
 {
     public partial class QuizForm : Form
     {
-        private QuestionManager _questionManager = new QuestionManager();
+        private QuizEngine _quizEngine;
         private string _category;
-        private int _currentIndex = 0;
         private int _score = 0;
         private IScoringStrategy _strategy;
-
-        private List<Question> _questions;
 
         public QuizForm(string categorie, IScoringStrategy strategy)
         {
@@ -37,27 +35,29 @@ namespace SLCT
 
             try
             {
-                _questionManager.LoadQuestions("Questions.json");
-                _questions = _questionManager.GetQuestions(categorie);
-
-                if (_questions == null || _questions.Count == 0)
+                string strategyName = strategy.GetType().Name.Replace("Scoring", "");
+                _quizEngine = new QuizEngine(strategyName);
+                _quizEngine.StartQuiz(categorie);
+                if (_quizEngine.IsFinished())
                 {
                     MessageBox.Show("Nu există întrebări pentru categoria selectată.", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Close();
+                    return;
                 }
             } catch (Exception ex)
             {
                 MessageBox.Show($"Eroare la încărcarea întrebărilor: {ex.Message}" , "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
+                return;
             }
             AfiseazaIntrebare();
         }
 
         private void AfiseazaIntrebare()
         {
-            if (_currentIndex >= _questions.Count)
+            if (_quizEngine.IsFinished())
             {
-                ScoreForm scoreForm = new ScoreForm(_score, _questions.Count);
+                ScoreForm scoreForm = new ScoreForm(_score, _quizEngine.TotalQuestions);
 
                 scoreForm.StartPosition = FormStartPosition.Manual;
                 scoreForm.Location = this.Location;
@@ -69,11 +69,11 @@ namespace SLCT
                 return;
             }
 
-            var q = _questions[_currentIndex];
+            var q = _quizEngine.CurrentQuestion;
 
             richTextBoxQuestion.Text = q.Text;
             richTextBoxScore.Text =
-                $"Categorie: {_category}\nScor: {_score}\nÎntrebarea {_currentIndex + 1} / {_questions.Count}";
+                $"Categorie: {_category}\nScor: {_score}\nÎntrebarea {_quizEngine.CurrentIndex + 1} / {_quizEngine.TotalQuestions}";
 
             buttonA.Text = q.Options[0];
             buttonB.Text = q.Options[1];
@@ -95,7 +95,9 @@ namespace SLCT
             buttonC.Enabled = false;
             buttonD.Enabled = false;
 
-            if (index == _questions[_currentIndex].CorrectAnswer)
+            bool isCorrect = _quizEngine.SubmitAnswer(index);
+
+            if (isCorrect)
             {
                 _score++;
                 ((Button)Controls["button" + "ABCD"[index]]).BackColor = Color.LightGreen;
@@ -104,7 +106,7 @@ namespace SLCT
             {
                 ((Button)Controls["button" + "ABCD"[index]]).BackColor = Color.IndianRed;
 
-                int correct = _questions[_currentIndex].CorrectAnswer;
+                int correct = _quizEngine.CurrentQuestion.CorrectAnswer;
                 ((Button)Controls["button" + "ABCD"[correct]]).BackColor = Color.LightGreen;
             }
 
@@ -116,7 +118,7 @@ namespace SLCT
             buttonC.BackColor = culoareaInitiala;
             buttonD.BackColor = culoareaInitiala;
 
-            _currentIndex++;
+            _quizEngine.NextQuestion();
             AfiseazaIntrebare();
         }
 

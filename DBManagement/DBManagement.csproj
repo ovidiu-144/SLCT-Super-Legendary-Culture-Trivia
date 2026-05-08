@@ -7,12 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="DBManagement">
-      <HintPath>..\DBManagement\bin\Debug\net8.0\DBManagement.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="Questions.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

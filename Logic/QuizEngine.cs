@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using DBManagement;
 
 namespace Logic
 {
@@ -27,9 +27,6 @@ namespace Logic
             _scoreManager = new ScoreManager(strategy);
 
             _questionManager = new QuestionManager();
-            //punem in memorie fiecare intrebare
-            _questionManager.LoadQuestions("Questions.json");
-
 
             _questions = new List<Question>();
             _currentIndex = 0;
@@ -43,7 +40,7 @@ namespace Logic
         /// Actualizeaza intrebarile cu ce are in memorie
         /// </summary>
         /// <param name="category">Numele categoriei din care luam intrebarile</param>
-        void StartQuiz(string category)
+        public void StartQuiz(string category)
         {
             _questions = _questionManager.GetQuestions(category);
             //eventual poate marcarea unui flag sau ceva
@@ -52,7 +49,7 @@ namespace Logic
         /// <summary>
         /// Returneaza intrebarea curenta
         /// </summary>
-        Question CurrentQuestion
+        public Question CurrentQuestion
         {
             get
             {
@@ -62,7 +59,10 @@ namespace Logic
                 return _questions[_currentIndex];
             }
         }
-        
+
+        public int TotalQuestions => _questions.Count;
+        public int CurrentIndex => _currentIndex;
+
 
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace Logic
         /// </summary>
         /// <param name="optionIndex">Varianta aleasa de utilizator</param>
         /// <returns></returns>
-        bool SubmitAnswer (int optionIndex)
+        public bool SubmitAnswer (int optionIndex)
         {
             /*Cred ca pentru suffle, ar trebui sa luam cumva
             De ex, intrebarea sa fie de forma
@@ -102,7 +102,7 @@ namespace Logic
         /// Returneaza daca s-au terminat intrebarile sau nu
         /// </summary>
         /// <returns></returns>
-        bool IsFinished()
+        public bool IsFinished()
         {
             return _currentIndex == _questions.Count;
         }
@@ -114,7 +114,7 @@ namespace Logic
         /// <summary>
         /// Merge la urmatoarea intrebare
         /// </summary>
-        void NextQuestion()
+        public void NextQuestion()
         {
             _currentIndex++;
         }
