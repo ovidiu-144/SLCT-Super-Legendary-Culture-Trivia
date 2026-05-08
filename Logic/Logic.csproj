@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DBManagement\DBManagement.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="DBManagement">
       <HintPath>..\DBManagement\bin\Debug\net8.0\DBManagement.dll</HintPath>
     </Reference>

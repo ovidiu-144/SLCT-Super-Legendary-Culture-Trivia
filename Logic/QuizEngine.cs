@@ -109,7 +109,7 @@ namespace Logic
         /// <summary>
         /// Getter pentru scor
         /// </summary>
-        int Score => _scoreManager.TotalScore;
+        public int Score => _scoreManager.TotalScore;
 
         /// <summary>
         /// Merge la urmatoarea intrebare
@@ -122,7 +122,7 @@ namespace Logic
         /// <summary>
         /// Reseteaza scorul si intrebarile
         /// </summary>
-        void Reset()
+        public void Reset()
         {
             _scoreManager.Reset();
             _currentIndex = 0;

@@ -16,7 +16,6 @@ namespace SLCT
     {
         private QuizEngine _quizEngine;
         private string _category;
-        private int _score = 0;
         private IScoringStrategy _strategy;
 
         public QuizForm(string categorie, IScoringStrategy strategy)
@@ -57,7 +56,7 @@ namespace SLCT
         {
             if (_quizEngine.IsFinished())
             {
-                ScoreForm scoreForm = new ScoreForm(_score, _quizEngine.TotalQuestions);
+                ScoreForm scoreForm = new ScoreForm(_quizEngine.Score, _quizEngine.TotalQuestions);
 
                 scoreForm.StartPosition = FormStartPosition.Manual;
                 scoreForm.Location = this.Location;
@@ -73,7 +72,7 @@ namespace SLCT
 
             richTextBoxQuestion.Text = q.Text;
             richTextBoxScore.Text =
-                $"Categorie: {_category}\nScor: {_score}\nÎntrebarea {_quizEngine.CurrentIndex + 1} / {_quizEngine.TotalQuestions}";
+                $"Categorie: {_category}\nScor: {_quizEngine.Score}\nÎntrebarea {_quizEngine.CurrentIndex + 1} / {_quizEngine.TotalQuestions}";
 
             buttonA.Text = q.Options[0];
             buttonB.Text = q.Options[1];
@@ -99,7 +98,6 @@ namespace SLCT
 
             if (isCorrect)
             {
-                _score++;
                 ((Button)Controls["button" + "ABCD"[index]]).BackColor = Color.LightGreen;
             }
             else
