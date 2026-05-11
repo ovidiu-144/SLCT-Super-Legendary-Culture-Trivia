@@ -15,6 +15,10 @@ namespace SLCT
         public MainMenu()
         {
             InitializeComponent();
+
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.None;   
+            this.StartPosition = FormStartPosition.Manual; 
         }
 
         private void buttonExit_Click(object sender, EventArgs e)

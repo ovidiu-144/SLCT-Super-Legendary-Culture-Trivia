@@ -16,6 +16,7 @@ namespace SLCT
         public CategoryMenu()
         {
             InitializeComponent();
+            comboStrategy.Items.Clear();
 
             comboStrategy.Items.Add("Simple Scoring");
             comboStrategy.Items.Add("Negative Scoring");
@@ -114,6 +115,11 @@ namespace SLCT
                 return new TimedScoring();
 
             return new SimpleScoring();
+        }
+
+        private void comboStrategy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

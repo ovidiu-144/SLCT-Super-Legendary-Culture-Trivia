@@ -29,157 +29,163 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoryMenu));
-            this.labelCategories = new System.Windows.Forms.Label();
-            this.buttonPR = new System.Windows.Forms.Button();
-            this.buttonMA = new System.Windows.Forms.Button();
-            this.buttonIS = new System.Windows.Forms.Button();
-            this.buttonGE = new System.Windows.Forms.Button();
-            this.buttonFI = new System.Windows.Forms.Button();
-            this.buttonSP = new System.Windows.Forms.Button();
-            this.comboStrategy = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            labelCategories = new Label();
+            buttonPR = new Button();
+            buttonMA = new Button();
+            buttonIS = new Button();
+            buttonGE = new Button();
+            buttonFI = new Button();
+            buttonSP = new Button();
+            comboStrategy = new ComboBox();
+            label1 = new Label();
+            SuspendLayout();
             // 
             // labelCategories
             // 
-            this.labelCategories.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelCategories.AutoSize = true;
-            this.labelCategories.BackColor = System.Drawing.Color.Transparent;
-            this.labelCategories.Font = new System.Drawing.Font("Stencil", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCategories.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelCategories.Location = new System.Drawing.Point(471, 115);
-            this.labelCategories.Name = "labelCategories";
-            this.labelCategories.Size = new System.Drawing.Size(462, 95);
-            this.labelCategories.TabIndex = 0;
-            this.labelCategories.Text = "Categorii";
-            this.labelCategories.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            labelCategories.Anchor = AnchorStyles.Top;
+            labelCategories.AutoSize = true;
+            labelCategories.BackColor = Color.Transparent;
+            labelCategories.Font = new Font("Stencil", 48F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            labelCategories.ForeColor = SystemColors.Control;
+            labelCategories.Location = new Point(471, 144);
+            labelCategories.Name = "labelCategories";
+            labelCategories.Size = new Size(462, 95);
+            labelCategories.TabIndex = 0;
+            labelCategories.Text = "Categorii";
+            labelCategories.TextAlign = ContentAlignment.TopCenter;
             // 
             // buttonPR
             // 
-            this.buttonPR.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonPR.BackColor = System.Drawing.Color.Navy;
-            this.buttonPR.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPR.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonPR.Location = new System.Drawing.Point(370, 316);
-            this.buttonPR.Name = "buttonPR";
-            this.buttonPR.Size = new System.Drawing.Size(209, 73);
-            this.buttonPR.TabIndex = 1;
-            this.buttonPR.Text = "PROGRAMARE";
-            this.buttonPR.UseVisualStyleBackColor = false;
-            this.buttonPR.Click += new System.EventHandler(this.buttonPR_Click);
+            buttonPR.Anchor = AnchorStyles.Top;
+            buttonPR.BackColor = Color.Navy;
+            buttonPR.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonPR.ForeColor = Color.WhiteSmoke;
+            buttonPR.Location = new Point(370, 395);
+            buttonPR.Margin = new Padding(3, 4, 3, 4);
+            buttonPR.Name = "buttonPR";
+            buttonPR.Size = new Size(209, 91);
+            buttonPR.TabIndex = 1;
+            buttonPR.Text = "PROGRAMARE";
+            buttonPR.UseVisualStyleBackColor = false;
+            buttonPR.Click += buttonPR_Click;
             // 
             // buttonMA
             // 
-            this.buttonMA.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonMA.BackColor = System.Drawing.Color.Navy;
-            this.buttonMA.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonMA.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonMA.Location = new System.Drawing.Point(370, 411);
-            this.buttonMA.Name = "buttonMA";
-            this.buttonMA.Size = new System.Drawing.Size(209, 73);
-            this.buttonMA.TabIndex = 2;
-            this.buttonMA.Text = "MATEMATICĂ";
-            this.buttonMA.UseVisualStyleBackColor = false;
-            this.buttonMA.Click += new System.EventHandler(this.buttonMA_Click);
+            buttonMA.Anchor = AnchorStyles.Top;
+            buttonMA.BackColor = Color.Navy;
+            buttonMA.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonMA.ForeColor = Color.WhiteSmoke;
+            buttonMA.Location = new Point(370, 514);
+            buttonMA.Margin = new Padding(3, 4, 3, 4);
+            buttonMA.Name = "buttonMA";
+            buttonMA.Size = new Size(209, 91);
+            buttonMA.TabIndex = 2;
+            buttonMA.Text = "MATEMATICĂ";
+            buttonMA.UseVisualStyleBackColor = false;
+            buttonMA.Click += buttonMA_Click;
             // 
             // buttonIS
             // 
-            this.buttonIS.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonIS.BackColor = System.Drawing.Color.Navy;
-            this.buttonIS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonIS.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonIS.Location = new System.Drawing.Point(370, 502);
-            this.buttonIS.Name = "buttonIS";
-            this.buttonIS.Size = new System.Drawing.Size(209, 73);
-            this.buttonIS.TabIndex = 3;
-            this.buttonIS.Text = "ISTORIE";
-            this.buttonIS.UseVisualStyleBackColor = false;
-            this.buttonIS.Click += new System.EventHandler(this.buttonIS_Click);
+            buttonIS.Anchor = AnchorStyles.Top;
+            buttonIS.BackColor = Color.Navy;
+            buttonIS.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonIS.ForeColor = Color.WhiteSmoke;
+            buttonIS.Location = new Point(370, 628);
+            buttonIS.Margin = new Padding(3, 4, 3, 4);
+            buttonIS.Name = "buttonIS";
+            buttonIS.Size = new Size(209, 91);
+            buttonIS.TabIndex = 3;
+            buttonIS.Text = "ISTORIE";
+            buttonIS.UseVisualStyleBackColor = false;
+            buttonIS.Click += buttonIS_Click;
             // 
             // buttonGE
             // 
-            this.buttonGE.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonGE.BackColor = System.Drawing.Color.Navy;
-            this.buttonGE.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGE.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonGE.Location = new System.Drawing.Point(783, 316);
-            this.buttonGE.Name = "buttonGE";
-            this.buttonGE.Size = new System.Drawing.Size(209, 73);
-            this.buttonGE.TabIndex = 4;
-            this.buttonGE.Text = "GEOGRAFIE";
-            this.buttonGE.UseVisualStyleBackColor = false;
-            this.buttonGE.Click += new System.EventHandler(this.buttonGE_Click);
+            buttonGE.Anchor = AnchorStyles.Top;
+            buttonGE.BackColor = Color.Navy;
+            buttonGE.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonGE.ForeColor = Color.WhiteSmoke;
+            buttonGE.Location = new Point(783, 395);
+            buttonGE.Margin = new Padding(3, 4, 3, 4);
+            buttonGE.Name = "buttonGE";
+            buttonGE.Size = new Size(209, 91);
+            buttonGE.TabIndex = 4;
+            buttonGE.Text = "GEOGRAFIE";
+            buttonGE.UseVisualStyleBackColor = false;
+            buttonGE.Click += buttonGE_Click;
             // 
             // buttonFI
             // 
-            this.buttonFI.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonFI.BackColor = System.Drawing.Color.Navy;
-            this.buttonFI.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonFI.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonFI.Location = new System.Drawing.Point(783, 411);
-            this.buttonFI.Name = "buttonFI";
-            this.buttonFI.Size = new System.Drawing.Size(209, 73);
-            this.buttonFI.TabIndex = 5;
-            this.buttonFI.Text = "FIZICĂ";
-            this.buttonFI.UseVisualStyleBackColor = false;
-            this.buttonFI.Click += new System.EventHandler(this.buttonFI_Click);
+            buttonFI.Anchor = AnchorStyles.Top;
+            buttonFI.BackColor = Color.Navy;
+            buttonFI.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonFI.ForeColor = Color.WhiteSmoke;
+            buttonFI.Location = new Point(783, 514);
+            buttonFI.Margin = new Padding(3, 4, 3, 4);
+            buttonFI.Name = "buttonFI";
+            buttonFI.Size = new Size(209, 91);
+            buttonFI.TabIndex = 5;
+            buttonFI.Text = "FIZICĂ";
+            buttonFI.UseVisualStyleBackColor = false;
+            buttonFI.Click += buttonFI_Click;
             // 
             // buttonSP
             // 
-            this.buttonSP.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonSP.BackColor = System.Drawing.Color.Navy;
-            this.buttonSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSP.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonSP.Location = new System.Drawing.Point(783, 502);
-            this.buttonSP.Name = "buttonSP";
-            this.buttonSP.Size = new System.Drawing.Size(209, 73);
-            this.buttonSP.TabIndex = 6;
-            this.buttonSP.Text = "SPORT";
-            this.buttonSP.UseVisualStyleBackColor = false;
-            this.buttonSP.Click += new System.EventHandler(this.buttonSP_Click);
+            buttonSP.Anchor = AnchorStyles.Top;
+            buttonSP.BackColor = Color.Navy;
+            buttonSP.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonSP.ForeColor = Color.WhiteSmoke;
+            buttonSP.Location = new Point(783, 628);
+            buttonSP.Margin = new Padding(3, 4, 3, 4);
+            buttonSP.Name = "buttonSP";
+            buttonSP.Size = new Size(209, 91);
+            buttonSP.TabIndex = 6;
+            buttonSP.Text = "SPORT";
+            buttonSP.UseVisualStyleBackColor = false;
+            buttonSP.Click += buttonSP_Click;
             // 
             // comboStrategy
             // 
-            this.comboStrategy.FormattingEnabled = true;
-            this.comboStrategy.Items.AddRange(new object[] {
-            "Negative Scoring",
-            "Simple Scoring",
-            "Timed Scoring"});
-            this.comboStrategy.Location = new System.Drawing.Point(614, 704);
-            this.comboStrategy.Name = "comboStrategy";
-            this.comboStrategy.Size = new System.Drawing.Size(158, 24);
-            this.comboStrategy.TabIndex = 7;
+            comboStrategy.FormattingEnabled = true;
+            comboStrategy.Items.AddRange(new object[] { "Negative Scoring", "Simple Scoring", "Timed Scoring" });
+            comboStrategy.Location = new Point(614, 880);
+            comboStrategy.Margin = new Padding(3, 4, 3, 4);
+            comboStrategy.Name = "comboStrategy";
+            comboStrategy.Size = new Size(158, 28);
+            comboStrategy.TabIndex = 7;
+            comboStrategy.SelectedIndexChanged += comboStrategy_SelectedIndexChanged;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(559, 672);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(280, 20);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Strategie de acordare a scorului";
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(559, 840);
+            label1.Name = "label1";
+            label1.Size = new Size(280, 20);
+            label1.TabIndex = 8;
+            label1.Text = "Strategie de acordare a scorului";
             // 
             // CategoryMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1401, 775);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboStrategy);
-            this.Controls.Add(this.buttonSP);
-            this.Controls.Add(this.buttonFI);
-            this.Controls.Add(this.buttonGE);
-            this.Controls.Add(this.buttonIS);
-            this.Controls.Add(this.buttonMA);
-            this.Controls.Add(this.buttonPR);
-            this.Controls.Add(this.labelCategories);
-            this.Name = "CategoryMenu";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(1401, 969);
+            Controls.Add(label1);
+            Controls.Add(comboStrategy);
+            Controls.Add(buttonSP);
+            Controls.Add(buttonFI);
+            Controls.Add(buttonGE);
+            Controls.Add(buttonIS);
+            Controls.Add(buttonMA);
+            Controls.Add(buttonPR);
+            Controls.Add(labelCategories);
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "CategoryMenu";
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
