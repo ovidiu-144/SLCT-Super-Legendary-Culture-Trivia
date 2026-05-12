@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <LangVersion>latest</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DBManagement\DBManagement.csproj" />
     <ProjectReference Include="..\Logic\Logic.csproj" />
+    <ProjectReference Include="..\SLCT\SLCT.csproj" />
   </ItemGroup>
 
   <ItemGroup>
