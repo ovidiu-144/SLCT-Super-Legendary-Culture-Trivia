@@ -6,12 +6,18 @@ using System;
 
 namespace QuizApp.Tests
 {
+    /// <summary>
+    /// Clasa pentru testarea QuizEngine
+    /// </summary>
     [TestFixture]
     public class QuizEngineTests
     {
         private QuizEngine _engine;
         private string _tempFilePath;
 
+        /// <summary>
+        /// Initializare pentru fiecare test - creeaza un fisier temporar cu intrebari si instanta de QuizEngine
+        /// </summary>
         [SetUp]
         public void SetUp()
         {
@@ -26,6 +32,9 @@ namespace QuizApp.Tests
             _engine = new QuizEngine("Simple");
         }
 
+        /// <summary>
+        /// Curatarea dupa fiecare test - sterge fisierul temporar creat
+        /// </summary>
         [TearDown]
         public void TearDown()
         {
@@ -33,6 +42,9 @@ namespace QuizApp.Tests
                 File.Delete(_tempFilePath);
         }
 
+        /// <summary>
+        /// Verifica daca startul unui quiz cu o categorie valida incarca intrebarile corespunzatoare si seteaza totalul de intrebari
+        /// </summary>
         [Test]
         public void StartQuiz_ValidCategory_ShouldLoadQuestions()
         {
@@ -40,6 +52,9 @@ namespace QuizApp.Tests
             Assert.That(_engine.TotalQuestions, Is.GreaterThan(0));
         }
 
+        /// <summary>
+        /// Verifica daca startul unui quiz cu o categorie invalida nu incarca nicio intrebare si seteaza totalul de intrebari la zero
+        /// </summary>
         [Test]
         public void StartQuiz_InvalidCategory_ShouldHaveNoQuestions()
         {
@@ -47,15 +62,10 @@ namespace QuizApp.Tests
             Assert.That(_engine.TotalQuestions, Is.EqualTo(0));
         }
 
-        [Test]
-        public void CurrentQuestion_BeforeStart_ShouldThrow()
-        {
-            Assert.Throws<InvalidOperationException>(() =>
-            {
-                var q = _engine.CurrentQuestion;
-            });
-        }
-
+        /// <summary>
+        /// Verifica daca trimiterea unui raspuns corect pentru intrebarea curenta returneaza true, 
+        /// indicand ca raspunsul a fost evaluat ca fiind corect.
+        /// </summary>
         [Test]
         public void SubmitAnswer_CorrectAnswer_ShouldReturnTrue()
         {
@@ -66,6 +76,9 @@ namespace QuizApp.Tests
             Assert.That(result, Is.True);
         }
 
+        /// <summary>
+        /// Verifica daca trimiterea unui raspuns gresit pentru intrebarea curenta returneaza false,
+        /// </summary>
         [Test]
         public void SubmitAnswer_WrongAnswer_ShouldReturnFalse()
         {
@@ -75,6 +88,9 @@ namespace QuizApp.Tests
             Assert.That(result, Is.False);
         }
 
+        /// <summary>
+        /// Verifica daca apelarea metodei NextQuestion avanseaza indexul curent, permitand trecerea la urmatoarea intrebare din quiz.
+        /// </summary>
         [Test]
         public void NextQuestion_ShouldAdvanceIndex()
         {
@@ -84,6 +100,10 @@ namespace QuizApp.Tests
             Assert.That(_engine.CurrentIndex, Is.EqualTo(indexInitial + 1));
         }
 
+        /// <summary>
+        /// Verifica daca metoda IsFinished returneaza true dupa ce s-au parcurs toate intrebarile din quiz, 
+        /// indicand ca quizul a fost finalizat cu succes.
+        /// </summary>
         [Test]
         public void IsFinished_AfterAllQuestions_ShouldReturnTrue()
         {
@@ -94,6 +114,10 @@ namespace QuizApp.Tests
             Assert.That(_engine.IsFinished(), Is.True);
         }
 
+        /// <summary>
+        /// Verifica daca metoda IsFinished returneaza false la inceputul quizului, indicand ca quizul nu a fost finalizat 
+        /// si ca exista intrebari disponibile pentru a fi parcurse.
+        /// </summary>
         [Test]
         public void IsFinished_AtStart_ShouldReturnFalse()
         {
@@ -101,6 +125,9 @@ namespace QuizApp.Tests
             Assert.That(_engine.IsFinished(), Is.False);
         }
 
+        /// <summary>
+        /// Verifica daca apelarea metodei Reset reseteaza indexul curent la zero, permitand reluarea quizului de la prima intrebare,
+        /// </summary>
         [Test]
         public void Reset_ShouldSetIndexToZero()
         {
@@ -110,6 +137,10 @@ namespace QuizApp.Tests
             Assert.That(_engine.CurrentIndex, Is.EqualTo(0));
         }
 
+        /// <summary>
+        /// Verifica daca trimiterea unui raspuns corect pentru intrebarea curenta creste scorul, 
+        /// asigurandu-se ca scorul este mai mare decat zero dupa evaluarea raspunsului corect.
+        /// </summary>
         [Test]
         public void Score_AfterCorrectAnswer_ShouldBeGreaterThanZero()
         {

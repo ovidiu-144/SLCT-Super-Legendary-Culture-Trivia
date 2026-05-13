@@ -5,45 +5,32 @@ using System.Text;
 
 namespace Test
 {
+    /// <summary>
+    /// Clasa pentru testarea ScoringStrategy
+    /// </summary>
     [TestFixture]
     public class ScoringStrategyTests
     {
+        /// <summary>
+        /// Verifica daca SimpleScoring returneaza un scor pozitiv pentru un raspuns corect
+        /// </summary>
         [Test]
         public void SimpleScoring_CorrectAnswer_ShouldReturnPositive()
         {
             var strategy = new SimpleScoring();
-            int score = strategy.CalculateScore(true, 0);
+            int score = strategy.CalculateScore(true);
             Assert.That(score, Is.GreaterThan(0));
         }
-
+        
+        /// <summary>
+        /// Verifica daca NegativeScoring returneaza un scor negativ pentru un raspuns gresit
+        /// </summary>
         [Test]
         public void NegativeScoring_WrongAnswer_ShouldReturnNegative()
         {
             var strategy = new NegativeScoring();
-            int score = strategy.CalculateScore(false, 0);
+            int score = strategy.CalculateScore(false);
             Assert.That(score, Is.LessThan(0));
-        }
-
-        [Test]
-        public void TimedScoring_FasterAnswer_ShouldScoreHigher()
-        {
-            var strategy = new TimedScoring();
-            int fastScore = strategy.CalculateScore(true, 1);
-            int middleScore = strategy.CalculateScore(true, 6);
-            int slowScore = strategy.CalculateScore(true, 11);
-
-            Assert.That(fastScore, Is.GreaterThan(middleScore));
-            Assert.That(fastScore, Is.GreaterThan(slowScore));
-            Assert.That(middleScore, Is.GreaterThan(slowScore));
-        }
-
-        [Test]
-        public void TimedScoring_SlowerAnswer_ShouldScoreLower()
-        {
-            var strategy = new TimedScoring();
-            int score = strategy.CalculateScore(true, 30);
-
-            Assert.That(score, Is.EqualTo(1));
         }
     }
 }

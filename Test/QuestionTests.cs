@@ -6,11 +6,17 @@ using NUnit.Framework;
 
 namespace Test
 {
+    /// <summary>
+    /// Clasa de testare pentru Question, verificând validitatea atributelor și constrângerile acestora
+    /// </summary>
     [TestFixture]
     public class QuestionTests
     {
         private Question _question;
 
+        /// <summary>
+        /// Initializare a unui obiect Question cu atribute valide pentru testare
+        /// </summary>
         [SetUp]
         public void SetUp()
         {
@@ -23,6 +29,9 @@ namespace Test
             };
         }
 
+        /// <summary>
+        /// Verificarea atributelor pentru a se asigura că sunt setate corect și corespund valorilor așteptate
+        /// </summary>
         [Test]
         public void ValidAttributes_ShouldSetCorrectly()
         {
@@ -31,6 +40,9 @@ namespace Test
             Assert.That(_question.Category, Is.EqualTo("Fizica"));
         }
 
+        /// <summary>
+        /// Verificarea corectitudinii indexului pentru răspunsul corect, asigurându-se că acesta este un index valid în array-ul de opțiuni
+        /// </summary>
         [Test]
         public void CorrectAnswer_ShouldBeValidIndex()
         {
@@ -38,6 +50,9 @@ namespace Test
             Assert.That(_question.CorrectAnswer, Is.LessThan(_question.Options.Length));
         }
 
+        /// <summary>
+        /// Verificarea că array-ul de opțiuni nu este gol, asigurându-se că există cel puțin o opțiune disponibilă pentru întrebarea dată
+        /// </summary>
         [Test]
         public void Options_ShouldNotBeEmpty()
         {
