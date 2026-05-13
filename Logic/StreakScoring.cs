@@ -10,7 +10,7 @@ namespace Logic
     public class StreakScoring : IScoringStrategy
     {
         private int _currentStreak = 0;
-        public int CalculateScore(bool isCorrect, int timeElapsed)
+        public int CalculateScore(bool isCorrect)
         {
 
             //ceva la stilu cred

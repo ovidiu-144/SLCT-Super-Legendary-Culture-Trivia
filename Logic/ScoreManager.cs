@@ -38,9 +38,9 @@ namespace Logic
         /// </summary>
         /// <param name="isCorrect">Verifica daca s-a raspuns corect la intrebare</param>
         /// <param name="timeElapsed">Verifica timpul in care a raspuns la intrebare</param>
-        public void UpdateScore(bool isCorrect, int timeElapsed = 0)
+        public void UpdateScore(bool isCorrect)
         {
-            _totalScore += _strategy.CalculateScore(isCorrect, timeElapsed);
+            _totalScore += _strategy.CalculateScore(isCorrect);
         }
 
         /// <summary>

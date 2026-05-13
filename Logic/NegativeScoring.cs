@@ -9,7 +9,7 @@ namespace Logic
     /// </summary>
     public class NegativeScoring : IScoringStrategy
     {
-        public int CalculateScore(bool isCorrect, int timeElapsed)
+        public int CalculateScore(bool isCorrect)
         {
             return isCorrect ? 1 : -1;
         }

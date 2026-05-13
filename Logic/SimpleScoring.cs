@@ -9,7 +9,7 @@ namespace Logic
     /// </summary>
     public class SimpleScoring : IScoringStrategy
     {
-        public int CalculateScore(bool isCorrect, int timeElapsed)
+        public int CalculateScore(bool isCorrect)
         {
             //Daca e raspuns corect 1, altfel 0
             return isCorrect ? 1 : 0;

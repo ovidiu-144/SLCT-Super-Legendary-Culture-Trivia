@@ -15,6 +15,6 @@ namespace Logic
         /// <param name="isCorrect">Verifica daca s-a raspuns corect la intrebare</param>
         /// <param name="timeElapsed">Verifica timpul in care a raspuns la intrebare</param>
         /// <returns></returns>
-        int CalculateScore(bool isCorrect, int timeElapsed);
+        int CalculateScore(bool isCorrect);
     }
 }
