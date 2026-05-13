@@ -59,8 +59,13 @@ namespace Logic
                 return _questions[_currentIndex];
             }
         }
-
+        /// <summary>
+        /// Getter pentru numarul total de intrebari
+        /// </summary>
         public int TotalQuestions => _questions.Count;
+        /// <summary>
+        /// Getter pentru indexul intrebarii curente
+        /// </summary>
         public int CurrentIndex => _currentIndex;
 
 
@@ -112,11 +117,34 @@ namespace Logic
         public int Score => _scoreManager.TotalScore;
 
         /// <summary>
+        /// Metoda care amesteca optiunile intrebarilor aleatoriu
+        /// </summary>
+        public void ShuffleOptions()
+        {
+            Random rnd = new Random();
+            string[] options = CurrentQuestion.Options;
+            
+            //Luam raspunsul corect
+            string correctAnswer = options[CurrentQuestion.CorrectAnswer];
+            
+            //Amestecam raspunsurile
+            rnd.Shuffle(options);
+
+            //Luam indexul corect
+            int newIndex = Array.IndexOf(options, correctAnswer);
+
+            //Setam in intrebare, ca sa putem trimite spre interfata
+            CurrentQuestion.Options = options;
+            CurrentQuestion.CorrectAnswer = newIndex;
+        }
+
+        /// <summary>
         /// Merge la urmatoarea intrebare
         /// </summary>
         public void NextQuestion()
         {
             _currentIndex++;
+            ShuffleOptions();
         }
 
         /// <summary>
