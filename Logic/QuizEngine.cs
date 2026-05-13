@@ -55,7 +55,7 @@ namespace Logic
             {
                 //Ca sa nu avem probleme daca este apelata cand nu trebuie
                 if (_questions.Count == 0)
-                    throw new InvalidOperationException("Nu exista intrebari incarcate");
+                    throw new NoQuestionsLoadedException();
                 return _questions[_currentIndex];
             }
         }
@@ -77,20 +77,6 @@ namespace Logic
         /// <returns></returns>
         public bool SubmitAnswer (int optionIndex)
         {
-            /*Cred ca pentru suffle, ar trebui sa luam cumva
-            De ex, intrebarea sa fie de forma
-              Intrebare ? 1.RaspunsA  2.RaspunsB  3.RaspunsC  4.RaspunsD
-             pe interfata afisam doar RaspunsA B C D
-             iar la raspuns corect am avea 1, 2, 3, 4
-             astfel daca am amesteca raspunsurile, varianta corecta ar ramane
-            doar  in functie de primul index
-
-            Si am putea avea ceva de genu
-            
-            int answer = Int32.Parse (CurrentQuestion[optionIndex][0]); // -> Acum answer are acea valoare
-            bool isCorrect = (CurrentQuestion.CorrectAnswer == answer);
-            */
-            
             //Verificam daca este corect raspunsul
             bool isCorrect = (CurrentQuestion.CorrectAnswer == optionIndex);
 
@@ -155,9 +141,6 @@ namespace Logic
         {
             _scoreManager.Reset();
             _currentIndex = 0;
-
-            //Deodata cu asta ar trebui facut si un shuffle pentru intrebari eventual
-            //Sau cu alte categorii?
         }
     }
 }

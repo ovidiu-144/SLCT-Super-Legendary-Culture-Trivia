@@ -30,7 +30,7 @@ namespace Logic
                     _strategy = new StreakScoring();
                     break;
                 default:
-                    throw new Exception("Wrong input"); // facem si clae pentru exceptii
+                    throw new InvalidStrategyException(strategy);
             }
         }
         /// <summary>
