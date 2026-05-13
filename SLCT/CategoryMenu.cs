@@ -169,15 +169,19 @@ namespace SLCT
         /// <returns>O instanță a interfeței IScoringStrategy.</returns>
         private IScoringStrategy GetStrategy()
         {
-            string selected = comboStrategy.SelectedItem.ToString();
+            try
+            {
+                string selected = comboStrategy.SelectedItem?.ToString();
 
-            if (selected == "Negative Scoring")
-                return new NegativeScoring();
+                if (selected == "Negative Scoring") return new NegativeScoring();
+                if (selected == "Timed Scoring") return new TimedScoring();
 
-            if (selected == "Timed Scoring")
-                return new TimedScoring();
-
-            return new SimpleScoring();
+                return new SimpleScoring();
+            }
+            catch
+            {
+                return new SimpleScoring();
+            }
         }
 
         /// <summary>

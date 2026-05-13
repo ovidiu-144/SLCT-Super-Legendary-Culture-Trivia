@@ -40,7 +40,7 @@ namespace SLCT
         {
             InitializeComponent();
             labelScore.Text = $"Scorul tău: {score * 10} puncte";
-            labelDetalii.Text = $"{score} răspunsuri corecte din {total}";
+            //labelDetalii.Text = $"{score} răspunsuri corecte din {total}";
         }
 
         /// <summary>

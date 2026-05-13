@@ -146,6 +146,7 @@
             // 
             // comboStrategy
             // 
+            comboStrategy.Anchor = AnchorStyles.Top;
             comboStrategy.FormattingEnabled = true;
             comboStrategy.Items.AddRange(new object[] { "Negative Scoring", "Simple Scoring", "Timed Scoring" });
             comboStrategy.Location = new Point(614, 880);
