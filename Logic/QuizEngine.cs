@@ -144,7 +144,8 @@ namespace Logic
         public void NextQuestion()
         {
             _currentIndex++;
-            ShuffleOptions();
+            if (_currentIndex != TotalQuestions)
+                ShuffleOptions();
         }
 
         /// <summary>
