@@ -7,17 +7,21 @@ namespace Logic
     /// <summary>
     /// Implementare in care conteaza rapiditatea raspunsului
     /// </summary>
-    public class TimedScoring : IScoringStrategy
+    public class StreakScoring : IScoringStrategy
     {
+        private int _currentStreak = 0;
         public int CalculateScore(bool isCorrect, int timeElapsed)
         {
 
             //ceva la stilu cred
             if (!isCorrect)
+            {
+                _currentStreak = 0;
                 return 0;
-            if (timeElapsed < 5)        return 3;
-            else if (timeElapsed < 10)  return 2;
-            else                        return 1;
+            }
+            if (_currentStreak < 3)
+                _currentStreak++;
+            return _currentStreak;
         }
     }
 }

@@ -26,8 +26,8 @@ namespace Logic
                 case "Negative":
                     _strategy = new NegativeScoring();
                     break;
-                case "Timed":
-                    _strategy = new TimedScoring();
+                case "Streak":
+                    _strategy = new StreakScoring();
                     break;
                 default:
                     throw new Exception("Wrong input"); // facem si clae pentru exceptii

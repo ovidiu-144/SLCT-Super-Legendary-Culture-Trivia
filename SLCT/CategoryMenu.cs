@@ -41,7 +41,7 @@ namespace SLCT
 
             comboStrategy.Items.Add("Simple Scoring");
             comboStrategy.Items.Add("Negative Scoring");
-            comboStrategy.Items.Add("Timed Scoring");
+            comboStrategy.Items.Add("Streak Scoring");
             comboStrategy.SelectedIndex = 0;
 
         }
@@ -174,7 +174,7 @@ namespace SLCT
                 string selected = comboStrategy.SelectedItem?.ToString();
 
                 if (selected == "Negative Scoring") return new NegativeScoring();
-                if (selected == "Timed Scoring") return new TimedScoring();
+                if (selected == "Streak Scoring") return new StreakScoring();
 
                 return new SimpleScoring();
             }
