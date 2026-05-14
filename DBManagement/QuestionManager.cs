@@ -20,19 +20,16 @@ namespace DBManagement
         /// <param name="filePath">Numele fisierului JSON care contine intrebarile.</param>
         public QuestionManager(string filePath = "Questions.json")
         {
+            //daca ni se ofera un sir gol
             if (string.IsNullOrEmpty(filePath))
                 throw new ArgumentException("Calea către fișier nu poate fi goală.", nameof(filePath));
 
             string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, filePath);
             _questions = new List<Question>();
-            try
-            {
-                LoadQuestions(fullPath);
-            }
-            catch (Exception ex)
-            {
-                throw new InvalidOperationException($"Eroare la încărcarea întrebărilor din fișierul '{filePath}': {ex.Message}", ex);
-            }
+            
+            //incercam incarcarea intrebarilor prin LoadQuestions
+            LoadQuestions(fullPath);
+  
         }
 
         /// <summary>
@@ -41,30 +38,43 @@ namespace DBManagement
         /// <param name="filePath">Calea către fișierul JSON care conține întrebările.</param>
         public void LoadQuestions(string filePath)
         {
+            //verificam daca fisierul exista, daca nu, aruncam exceptie 
             if (!File.Exists(filePath))
-                throw new FileNotFoundException($"Fișierul '{filePath}' nu a fost găsit.");
+                throw new QuestionsFileNotFoundException(filePath);
+
+
             string jsonString;
+
+            //incercam citirea fisierului, daca nu reusim, aruncam exceptie
             try
             {
                 jsonString = File.ReadAllText(filePath);
             }
             catch (UnauthorizedAccessException ex)
             {
-                throw new UnauthorizedAccessException($"Nu exista permisiune pentru a citi fisierul: '{filePath}': {ex.Message}", ex);
+                throw new FileAccessException(filePath, ex);
             }
             catch (IOException ex)
             {
-                throw new IOException($"Eroare la citirea fișierului '{filePath}': {ex.Message}", ex);
+                throw new FileAccessException(filePath, ex);
             }
+
+            if (string.IsNullOrWhiteSpace(jsonString))
+                throw new EmptyQuestionsFileException(filePath);
+
+            //incercam deserializarea, daca nu reusim, aruncam exceptie
             try
             {
-                _questions = JsonSerializer.Deserialize<List<Question>>(jsonString) ?? throw new InvalidDataException("Fișierul este gol");
+                _questions = JsonSerializer.Deserialize<List<Question>>(jsonString)
+                    ?? throw new EmptyQuestionsFileException(filePath);
             }
             catch (JsonException ex)
             {
-                throw new JsonException($"Eroare la deserializarea fișierului '{filePath}': {ex.Message}", ex);
-
+                throw new InvalidQuestionsFormatException(filePath);
             }
+
+            if (!_questions.Any())
+                throw new EmptyQuestionsFileException(filePath);
         }
 
         /// <summary>
@@ -75,13 +85,20 @@ namespace DBManagement
         /// <exception cref="ArgumentException">Aruncata daca categoria este nula sau goala.</exception>
         public List<Question> GetQuestions(string category)
         {
+            //verificam daca categoria este nula sau goala, daca da, aruncam exceptie
             if (string.IsNullOrWhiteSpace(category))
                 throw new ArgumentException("Categoria nu poate fi goală.", nameof(category));
 
+            //generam o lista de intrebari in ordine aleatoare pt categoria specificata
             Random rand = new Random();
-            return _questions.Where(q => q.Category.Equals(category, StringComparison.OrdinalIgnoreCase))
+            var result =  _questions.Where(q => q.Category.Equals(category, StringComparison.OrdinalIgnoreCase))
                 .OrderBy(q => rand.Next())
                 .ToList();
+
+            if (!result.Any())
+                throw new NoCategoryFoundException(category);
+
+            return result;
         }
 
         /// <summary>
@@ -91,8 +108,9 @@ namespace DBManagement
         /// <exception cref="InvalidOperationException">Aruncata atunci cand nu exista intrebari incarcate.</exception>
         public List<string> GetCategories()
         {
+            //verificam daca avem intrebari incarcate, daca nu, aruncam exceptie
             if (_questions == null || !_questions.Any())
-                throw new InvalidOperationException("Nu există întrebări încărcate.");
+                throw new EmptyQuestionsFileException("fisier nerecunoscut");
 
             return _questions.Select(q => q.Category)
                 .Distinct()
