@@ -1,4 +1,13 @@
-﻿using Logic;
+﻿// Proiect:      SLCT – Super Legendary Culture Trivia
+// Fișier:       QuizForm.cs
+// Autor:        Turnea David-Catalin
+// Echipă:       Alesia, Ioana, Ovidiu, Catalin
+// Descriere:    Fisierul contine clasa de testare pentru ScoreManager,
+//               verificând funcționalitatea principalelor metode
+//               și comportamentul acestora în diferite scenarii
+
+
+using Logic;
 using System;
 using System.Collections.Generic;
 using System.Text;
