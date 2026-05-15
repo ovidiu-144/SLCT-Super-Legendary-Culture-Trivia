@@ -1,4 +1,14 @@
-﻿using System;
+﻿// Proiect:      SLCT – Super Legendary Culture Trivia
+// Fișier:       QuestionManager.cs
+// Autor:        Chira Ioana
+// Echipă:       Alesia, Ioana, Ovidiu, Catalin
+// Descriere:    Fișierul conține clasa de gestionare a întrebărilor, care se ocupă de încărcarea întrebărilor din fișierele JSON,
+//               filtrarea acestora după categorie și oferirea unei liste de obiecte Question pentru categoria respectivă.
+//               De asemenea, clasa oferă metode pentru a obține lista de categorii disponibile în întrebările încărcate.
+//               În cazul unor probleme la încărcarea sau utilizarea întrebărilor, clasa aruncă excepții specifice pentru a oferi
+//               feedback clar și util pentru depanare.
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;

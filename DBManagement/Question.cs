@@ -1,4 +1,13 @@
-﻿using System;
+﻿// Proiect:      SLCT – Super Legendary Culture Trivia
+// Fișier:       Question.cs
+// Autor:        Chira Ioana
+// Echipă:       Alesia, Ioana, Ovidiu, Catalin
+// Descriere:    Fișierul conține clasa care reprezintă o întrebare de tip quiz, textul întrebării,
+//               opțiunile de răspuns, răspunsul corect și categoria din care face parte.
+//               Această clasă este utilizată pentru a structura datele întrebărilor încărcate din
+//               fișierele JSON și pentru a facilita manipularea acestora în cadrul aplicației de trivia.
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
