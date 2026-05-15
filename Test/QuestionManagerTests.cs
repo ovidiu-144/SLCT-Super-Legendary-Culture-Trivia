@@ -1,4 +1,12 @@
-﻿using System;
+﻿// Proiect:      SLCT – Super Legendary Culture Trivia
+// Fișier:       QuizForm.cs
+// Autor:        Turnea David-Catalin
+// Echipă:       Alesia, Ioana, Ovidiu, Catalin
+// Descriere:    Fisierul contine clasa de testare pentru QuestionManager,
+//               care se ocupa cu incarcarea intrebarilor dintr-un fisier JSON
+
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using DBManagement;
