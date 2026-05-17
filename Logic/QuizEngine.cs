@@ -1,4 +1,11 @@
-﻿using System;
+﻿// Proiect:      SLCT – Super Legendary Culture Trivia
+// Fișier:       QuizEngine.cs
+// Autor:        Turnea David-Catalin
+// Echipă:       Alesia, Ioana, Ovidiu, Catalin
+// Descriere:    Fisierul contine logica de alegere a intrebarilor + raspunsurile corecte
+
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using DBManagement;

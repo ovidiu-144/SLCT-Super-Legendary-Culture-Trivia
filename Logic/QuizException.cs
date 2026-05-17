@@ -1,4 +1,11 @@
-﻿using System;
+﻿// Proiect:      SLCT – Super Legendary Culture Trivia
+// Fișier:       QuizException.cs
+// Autor:        Turnea David-Catalin
+// Echipă:       Alesia, Ioana, Ovidiu, Catalin
+// Descriere:    Crearea de exceptii personalizate
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

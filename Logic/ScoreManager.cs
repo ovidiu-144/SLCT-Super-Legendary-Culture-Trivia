@@ -1,4 +1,11 @@
-﻿using System;
+﻿// Proiect:      SLCT – Super Legendary Culture Trivia
+// Fișier:       ScoreManager.cs
+// Autor:        Turnea David-Catalin
+// Echipă:       Alesia, Ioana, Ovidiu, Catalin
+// Descriere:    Clasa care are in spate toata logica legata de scorul utilizatorului
+
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
