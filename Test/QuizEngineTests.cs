@@ -1,5 +1,5 @@
 ﻿// Proiect:      SLCT – Super Legendary Culture Trivia
-// Fișier:       QuizForm.cs
+// Fișier:       QuizEngineTests.cs
 // Autor:        Turnea David-Catalin
 // Echipă:       Alesia, Ioana, Ovidiu, Catalin
 // Descriere:    Fisierul contine clasa de testare pentru QuizEngine,
