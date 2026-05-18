@@ -37,7 +37,7 @@ namespace SLCT
         {
             InitializeComponent();
 
-            this.WindowState = FormWindowState.Maximized;
+            this.WindowState = FormWindowState.Maximized; //deschide fereastra full screen
             this.FormBorderStyle = FormBorderStyle.None;   
             this.StartPosition = FormStartPosition.Manual; 
         }
@@ -65,13 +65,14 @@ namespace SLCT
         {
             CategoryMenu categoryMenu = new CategoryMenu();
 
+            // transferă poziția și dimensiunea ferestrei curente
             categoryMenu.StartPosition = FormStartPosition.Manual;
             categoryMenu.Location = this.Location;
             categoryMenu.Size = this.Size;
             categoryMenu.WindowState = this.WindowState;
 
             categoryMenu.Show();
-            this.Hide();
+            this.Hide(); // ascunde MainMenu fără să închidă aplicația
         }
     }
 }

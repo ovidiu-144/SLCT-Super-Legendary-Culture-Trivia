@@ -51,8 +51,8 @@ namespace SLCT
             _strategy = strategy;
             _category = categorie;
 
-            richTextBoxQuestion.ReadOnly = true;
-            richTextBoxScore.ReadOnly = true;
+            richTextBoxQuestion.ReadOnly = true; // utilizatorul nu poate edita textul întrebării
+            richTextBoxScore.ReadOnly = true; // utilizatorul nu poate edita scorul afișat
 
             _category = categorie;
             this.Text = "SLCT — " + categorie;
@@ -63,18 +63,41 @@ namespace SLCT
                 string strategyName = strategy.GetType().Name.Replace("Scoring", "");
                 _quizEngine = new QuizEngine(strategyName);
                 _quizEngine.StartQuiz(categorie);
-                if (_quizEngine.IsFinished())
+                _quizEngine.ShuffleOptions(); //afisarea raspunsurilor sa fie in ordine aleatoare
+
+                if (_quizEngine.IsFinished()) // dacă nu există întrebări, închidem formularul
                 {
-                    MessageBox.Show("Nu există întrebări pentru categoria selectată.", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Nu există întrebări pentru categoria selectată.",
+                        "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Close();
                     return;
                 }
-            } catch (Exception ex)
+            }
+            catch (DBManagement.NoCategoryFoundException ex)
             {
-                MessageBox.Show($"Eroare la încărcarea întrebărilor: {ex.Message}" , "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // categoria nu există în fișierul JSON
+                MessageBox.Show(ex.Message, "Categorie inexistentă",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.Close();
                 return;
             }
+            catch (DBManagement.QuestionsFileNotFoundException ex)
+            {
+                // fișierul Questions.json lipsește sau nu poate fi găsit
+                MessageBox.Show(ex.Message, "Fișier lipsă",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+            catch (Exception ex)
+            {
+                // orice altă eroare neașteptată
+                MessageBox.Show($"Eroare la încărcarea întrebărilor: {ex.Message}",
+                    "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
             AfiseazaIntrebare();
         }
 
@@ -90,7 +113,8 @@ namespace SLCT
             {
                 ScoreForm scoreForm = new ScoreForm(_quizEngine.Score, _quizEngine.TotalQuestions);
 
-                scoreForm.StartPosition = FormStartPosition.Manual;
+                // transferă dimensiunea și poziția ferestrei curente
+                scoreForm.StartPosition = FormStartPosition.Manual; //preia dimensiunea paginii anterioare
                 scoreForm.Location = this.Location;
                 scoreForm.Size = this.Size;
                 scoreForm.WindowState = this.WindowState;
@@ -102,17 +126,21 @@ namespace SLCT
 
             DBManagement.Question q = _quizEngine.CurrentQuestion;
 
+
+            // afișăm progresul: categorie, scor curent, numărul întrebării
             richTextBoxQuestion.Text = q.Text;
             richTextBoxScore.Text =
                 $"Categorie: {_category}\nScor: {_quizEngine.Score}\nÎntrebarea {_quizEngine.CurrentIndex + 1} / {_quizEngine.TotalQuestions}";
 
+            // populăm butoanele cu variantele de răspuns
             buttonA.Text = q.Options[0];
             buttonB.Text = q.Options[1];
             buttonC.Text = q.Options[2];
             buttonD.Text = q.Options[3];
 
-            buttonA.Focus();
+            buttonA.Focus(); // focus pe primul buton pentru navigare cu tastatura
 
+            // reactivăm butoanele după feedback-ul vizual de la întrebarea anterioară
             buttonA.Enabled = true;
             buttonB.Enabled = true;
             buttonC.Enabled = true;
@@ -129,6 +157,7 @@ namespace SLCT
         /// <param name="index">Indexul variantei alese (0=A, 1=B, 2=C, 3=D).</param>
         private async void VerificaRaspuns(int index)
         {
+            // dezactivăm butoanele pentru a preveni click-uri multiple
             buttonA.Enabled = false;
             buttonB.Enabled = false;
             buttonC.Enabled = false;
@@ -138,17 +167,19 @@ namespace SLCT
 
             if (isCorrect)
             {
+                // răspuns corect — colorăm butonul apăsat în verde
                 ((Button)Controls["button" + "ABCD"[index]]).BackColor = Color.LightGreen;
             }
             else
             {
+                // răspuns greșit — roșu pe cel apăsat, verde pe cel corect
                 ((Button)Controls["button" + "ABCD"[index]]).BackColor = Color.IndianRed;
 
                 int correct = _quizEngine.CurrentQuestion.CorrectAnswer;
                 ((Button)Controls["button" + "ABCD"[correct]]).BackColor = Color.LightGreen;
             }
 
-            await Task.Delay(800);
+            await Task.Delay(800); // pauză de 800ms pentru ca utilizatorul să vadă feedback-ul
             Color culoareaInitiala = Color.Navy;
 
             buttonA.BackColor = culoareaInitiala;

@@ -37,7 +37,7 @@ namespace SLCT
         public CategoryMenu()
         {
             InitializeComponent();
-            comboStrategy.Items.Clear();
+            comboStrategy.Items.Clear(); //goleste lista inainte de populare
 
             comboStrategy.Items.Add("Simple Scoring");
             comboStrategy.Items.Add("Negative Scoring");

@@ -1,4 +1,15 @@
-﻿using System;
+﻿// Proiect:      SLCT – Super Legendary Culture Trivia
+// Fișier:       Program.cs
+// Autor:        Alesia Lefter
+// Echipă:       Alesia, Ioana, Ovidiu, Catalin
+// Materie:      Ingineria Programării
+// Descriere:    Punctul de intrare al aplicației SLCT.
+//               Configurează setările inițiale pentru WinForms
+//               și pornește aplicația prin afișarea formularului
+//               principal (MainMenu).
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
