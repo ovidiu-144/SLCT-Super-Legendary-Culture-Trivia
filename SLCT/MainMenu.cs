@@ -18,6 +18,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace SLCT
 {
@@ -38,8 +39,8 @@ namespace SLCT
             InitializeComponent();
 
             this.WindowState = FormWindowState.Maximized; //deschide fereastra full screen
-            this.FormBorderStyle = FormBorderStyle.None;   
-            this.StartPosition = FormStartPosition.Manual; 
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.StartPosition = FormStartPosition.Manual;
         }
 
         /// <summary>
@@ -73,6 +74,34 @@ namespace SLCT
 
             categoryMenu.Show();
             this.Hide(); // ascunde MainMenu fără să închidă aplicația
+        }
+
+        /// <summary>
+        /// Handler buton „Help" — deschide documentația CHM a aplicației.
+        /// </summary>
+        private void buttonHelp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string helpPath = Path.Combine(
+                    AppDomain.CurrentDomain.BaseDirectory,
+                    "SLCT - Super Legendary Culture Trivia.chm");
+
+                if (File.Exists(helpPath))
+                {
+                    Help.ShowHelp(this, helpPath); // deschide fișierul CHM nativ Windows
+                }
+                else
+                {
+                    MessageBox.Show("Fișierul de ajutor nu a fost găsit.",
+                        "Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Nu s-a putut deschide Help: {ex.Message}",
+                    "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

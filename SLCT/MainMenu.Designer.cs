@@ -29,49 +29,69 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
-            this.buttonStart = new System.Windows.Forms.Button();
-            this.buttonExit = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            buttonStart = new Button();
+            buttonExit = new Button();
+            buttonHelp = new Button();
+            SuspendLayout();
             // 
             // buttonStart
             // 
-            this.buttonStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonStart.BackColor = System.Drawing.Color.Navy;
-            this.buttonStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonStart.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonStart.Location = new System.Drawing.Point(39, 755);
-            this.buttonStart.Name = "buttonStart";
-            this.buttonStart.Size = new System.Drawing.Size(155, 69);
-            this.buttonStart.TabIndex = 0;
-            this.buttonStart.Text = "Start";
-            this.buttonStart.UseVisualStyleBackColor = false;
-            this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
+            buttonStart.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            buttonStart.BackColor = Color.Navy;
+            buttonStart.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonStart.ForeColor = Color.WhiteSmoke;
+            buttonStart.Location = new Point(45, 728);
+            buttonStart.Margin = new Padding(3, 4, 3, 4);
+            buttonStart.Name = "buttonStart";
+            buttonStart.Size = new Size(155, 86);
+            buttonStart.TabIndex = 0;
+            buttonStart.Text = "Start";
+            buttonStart.UseVisualStyleBackColor = false;
+            buttonStart.Click += buttonStart_Click;
             // 
             // buttonExit
             // 
-            this.buttonExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonExit.BackColor = System.Drawing.Color.Navy;
-            this.buttonExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExit.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonExit.Location = new System.Drawing.Point(280, 755);
-            this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(155, 69);
-            this.buttonExit.TabIndex = 1;
-            this.buttonExit.Text = "Ieșire";
-            this.buttonExit.UseVisualStyleBackColor = false;
-            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
+            buttonExit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            buttonExit.BackColor = Color.Navy;
+            buttonExit.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonExit.ForeColor = Color.WhiteSmoke;
+            buttonExit.Location = new Point(286, 728);
+            buttonExit.Margin = new Padding(3, 4, 3, 4);
+            buttonExit.Name = "buttonExit";
+            buttonExit.Size = new Size(155, 86);
+            buttonExit.TabIndex = 1;
+            buttonExit.Text = "Ieșire";
+            buttonExit.UseVisualStyleBackColor = false;
+            buttonExit.Click += buttonExit_Click;
+            // 
+            // buttonHelp
+            // 
+            buttonHelp.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            buttonHelp.BackColor = Color.Navy;
+            buttonHelp.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonHelp.ForeColor = Color.WhiteSmoke;
+            buttonHelp.Location = new Point(502, 728);
+            buttonHelp.Margin = new Padding(3, 4, 3, 4);
+            buttonHelp.Name = "buttonHelp";
+            buttonHelp.Size = new Size(155, 86);
+            buttonHelp.TabIndex = 2;
+            buttonHelp.Text = "Ajutor";
+            buttonHelp.UseVisualStyleBackColor = false;
+            buttonHelp.Click += buttonHelp_Click;
             // 
             // MainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1453, 922);
-            this.Controls.Add(this.buttonExit);
-            this.Controls.Add(this.buttonStart);
-            this.Name = "MainMenu";
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(192, 192, 255);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(1453, 852);
+            Controls.Add(buttonHelp);
+            Controls.Add(buttonExit);
+            Controls.Add(buttonStart);
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "MainMenu";
+            ResumeLayout(false);
 
         }
 
@@ -79,6 +99,7 @@
 
         private System.Windows.Forms.Button buttonStart;
         private System.Windows.Forms.Button buttonExit;
+        private Button buttonHelp;
     }
 }
 
